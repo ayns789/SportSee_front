@@ -1,4 +1,24 @@
-.App {
+a {
+  text-decoration: none;
+}
+
+* {
+  font-family: 'Roboto';
+}
+body {
+  min-height: 842px;
+}
+
+/* .bar {
+  background: #020203;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  width: 117px;
+  min-height: 1024px;
+} */
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +55,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

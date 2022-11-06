@@ -1,0 +1,20 @@
+.bodyPage {
+    display: flex;
+    flex-direction: row;
+  }
+  .contentPage {
+      margin-left: 5em;
+      width: 100%;
+  }
+  .h1Page {
+    margin: 30px 0 0 0;
+    font-size: 48px;
+    font-weight: 600;
+  }
+  .h1PageName {
+    color: #FF0101;
+  }
+  .paragH1 {
+    font-size: 18px;
+    margin-top: 20px;
+  }

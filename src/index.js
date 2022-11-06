@@ -15,3 +15,24 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// exemple axios :
+
+// import axios from 'axios';
+
+// const ApiContext = createContext();
+
+// const DataApi = ({ children }) => {
+//   const [locations, setLocations] = useState([]);
+//   const getData = () => {
+//     axios.get('logements.json').then((res) => setLocations(res.data));
+//   };
+//   useEffect(() => {
+//     getData();
+//   }, []);
+//   return (
+//     <ApiContext.Provider value={locations}>{children}</ApiContext.Provider>
+//   );
+// };
+
+// export { ApiContext, DataApi };

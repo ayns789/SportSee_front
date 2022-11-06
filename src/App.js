@@ -1,11 +1,15 @@
 import './App.css';
-import Home from './pages/profil.jsx';
+// import Home from './Router/index.jsx';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './Router/Router';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className='App'>
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Router />
+    </BrowserRouter>
   );
 }
 
