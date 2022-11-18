@@ -1,0 +1,47 @@
+.linechart {
+    width: 260px;
+    height: 230px;
+    background-color: red;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 176px;
+}
+
+.linechart:hover {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    position: absolute;
+    z-index: 10;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: #fff;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    width: 50%;
+    text-align: left;
+    margin: 0 0 0 2rem;
+    padding: 2rem 0 0 0;
+}
+
+/* .recharts-text {
+    color: #fff;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+} */
+
+@media screen and (max-width: 1330px) {
+    .linechart {
+        height: 230px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .linechart {
+        height: 210px;
+    }
+}

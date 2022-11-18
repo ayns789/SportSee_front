@@ -1,85 +1,73 @@
-import './styles.css';
 import React from 'react';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  //   Legend
-} from 'recharts';
+import { handleFormatTick } from '../../utils/formatedData';
 
-const data = [
-  {
-    name: 'L',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'M',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'M',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'J',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'V',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'S',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'D',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+import PropTypes from 'prop-types';
+import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip, YAxis } from 'recharts';
+import CustomTooltip from '../CustomTooltip';
+import styles from './index.module.css';
 
-export default function App() {
+/**
+ * It's a function that returns a div with a title, a responsive container, a line chart, a line, a y
+ * axis, an x axis, and a tooltip
+ *
+ * @prop {Object} sessions Data from a user to LineChart
+ * @returns {React.ReactElement} A graph line chart
+ */
+const LineChartDisplay = ({ userSession }) => {
   return (
-    <LineChart
-      width={500}
-      height={300}
-      data={data}
-      style={{ background: 'red', borderRadius: '10px' }}
-      margin={{ top: 0, right: 0, bottom: 10, left: 0 }}
-    >
-      <XAxis
-        dataKey='name'
-        axisLine={false}
-        tickLine={false}
-        padding={{ right: 20, left: 20 }}
-        stroke={'#fff'}
-        interval={'preserveStartEnd'}
-      />
-      <YAxis hide padding={{ top: 60, bottom: 30 }} />
-      {/* <CartesianGrid strokeDasharray='3 3' /> */}
-      {/* <XAxis dataKey="name" /> */}
-      {/* <YAxis /> */}
-      <Tooltip />
-      {/* <Legend /> */}
-      <Line type='natural' dataKey='pv' dot={false} stroke={'#FFF'} strokeWidth={2} />
-      {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-    </LineChart>
+    <div className={styles.linechart}>
+      <p className={styles.title}>Durée moyenne des sessions</p>
+      <ResponsiveContainer margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+        <LineChart
+          data={userSession.sessions}
+          style={{ background: 'red', borderRadius: '10px' }}
+          margin={{ top: 0, right: 0, bottom: 10, left: 0 }}
+        >
+          <Line
+            type='natural'
+            dataKey='sessionLength'
+            dot={false}
+            activeDot={{ stroke: 'red', strokeWidth: 2, r: 3 }}
+            unit={'min'}
+            stroke={'#FFF'}
+            strokeWidth={2}
+          />
+          <YAxis hide padding={{ top: 70, bottom: 20 }} />
+          <XAxis
+            dataKey='day'
+            axisLine={false}
+            tickLine={false}
+            tickFormatter={handleFormatTick}
+            padding={{ right: 20, left: 20 }}
+            stroke={'#fff'}
+            interval={'preserveStartEnd'}
+          />
+          <Tooltip
+            wrapperStyle={{
+              background: '#FFF',
+              color: '#000',
+              width: '39px',
+              height: '25px',
+              outline: 'none',
+            }}
+            labelStyle={{ display: 'none', border: 'none' }}
+            content={<CustomTooltip />}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
-}
+};
+
+LineChartDisplay.propTypes = {
+  userSession: PropTypes.shape({
+    userId: PropTypes.number.isRequired,
+    sessions: PropTypes.arrayOf(
+      PropTypes.shape({
+        day: PropTypes.number.isRequired,
+        sessionLength: PropTypes.number.isRequired,
+      }).isRequired
+    ),
+  }).isRequired,
+};
+export default LineChartDisplay;

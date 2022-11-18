@@ -1,0 +1,46 @@
+.container {
+position: relative;
+width: 100%;
+height: 280px;
+background: #f8f8f8;
+border-radius: 10px;
+}
+.container:hover {
+box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+border-radius: 10px;
+}
+.containerTitle {
+position: absolute;
+font-size: 17px;
+left: 3.83%;
+top: 0.9rem;
+font-weight: bold;
+color: #20253a;
+line-height: 24px;
+z-index: 10;
+}
+
+.recharts-rectangle {
+  background: red;
+}
+
+.tooltip-wrapper-default-legend {
+  margin-top: 0.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.tooltipList {
+  font-size: 10px;
+}
+
+@media screen and (max-width: 1330px) {
+  .container {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    height: 220px;  
+  }
+}

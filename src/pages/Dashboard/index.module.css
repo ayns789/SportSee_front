@@ -18,3 +18,24 @@
     font-size: 18px;
     margin-top: 20px;
   }
+  .placementPage {
+
+  }
+  .container {
+display: flex;
+flex-direction: row;
+  }
+  .containerGraphs {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+  }
+  .containerBarChart {
+    margin-top: 50px;
+margin-bottom: 20px;
+  }
+  .containerDownGraphs {
+    display: flex;
+flex-direction: row;
+justify-content: space-between;
+  }

@@ -1,68 +1,51 @@
-import './styles.css';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { reformDatas } from '../../utils/formatedData';
 import {
-  Radar,
+  // ResponsiveContainer,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
-  // ResponsiveContainer
+  Radar,
 } from 'recharts';
 
-const data = [
-  {
-    subject: 'Intensité',
-    A: 120,
-    B: 110,
-    fullMark: 150,
-  },
-  {
-    subject: 'Vitesse',
-    A: 98,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    subject: 'Force',
-    A: 86,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    subject: 'Endurance',
-    A: 99,
-    B: 100,
-    fullMark: 150,
-  },
-  {
-    subject: 'Energie',
-    A: 85,
-    B: 90,
-    fullMark: 150,
-  },
-  {
-    subject: 'Cardio',
-    A: 65,
-    B: 85,
-    fullMark: 150,
-  },
-];
+const RadarChartDisplay = ({ userPerf }) => {
+  const datas = reformDatas(userPerf);
 
-export default function App() {
   return (
-    // <ResponsiveContainer width="100%" height="100%">
-    <RadarChart width={500} height={500} data={data}>
-      <PolarGrid />
-      <PolarAngleAxis
-        dataKey='subject'
-        orient={30}
-        tickLine={false}
-        radius={10}
-        fontSize={12}
-        strokeWidth={1}
-      />
-      <Radar dataKey='A' stroke='red' fill='red' fillOpacity={0.6} />
-    </RadarChart>
-    //  </ResponsiveContainer>
+    <div className='radarchart'>
+      {/* <ResponsiveContainer> */}
+      <RadarChart
+        outerRadius={75}
+        data={datas}
+        width={260}
+        height={230}
+        style={{ background: '#282D30', borderRadius: '10px' }}
+      >
+        <PolarGrid />
+        <PolarAngleAxis
+          dataKey='kind'
+          orient={30}
+          style={{ color: '#fff' }}
+          stroke={'#fff'}
+          tickLine={false}
+          radius={10}
+          fontSize={12}
+          strokeWidth={1}
+        />
+        <Radar dataKey='value' stroke='red' fill='red' fillOpacity={0.6} />
+      </RadarChart>
+      {/* </ResponsiveContainer> */}
+    </div>
   );
-}
+};
+
+RadarChartDisplay.propTypes = {
+  userPerf: PropTypes.shape({
+    data: PropTypes.arrayOf(PropTypes.object),
+    kind: PropTypes.object,
+    userId: PropTypes.number.isRequired,
+  }),
+};
+
+export default RadarChartDisplay;

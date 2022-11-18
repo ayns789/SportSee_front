@@ -1,102 +1,117 @@
-import './styles.css';
+// import './styles.css';
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend, Tooltip } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Legend,
+  Tooltip,
+  //   ResponsiveContainer,
+} from 'recharts';
+import PropTypes from 'prop-types';
+import CustomTooltip from '../CustomTooltip';
+import { customTick } from '../../utils/formatedData';
+import style from './index.module.css';
 
-const data = [
-  {
-    name: '1',
-    uv: 10,
-    pv: 10,
-    amt: 40,
-  },
-  {
-    name: '2',
-    uv: 30,
-    pv: 29,
-    amt: 21,
-  },
-  {
-    name: '3',
-    uv: 20,
-    pv: 40,
-    amt: 29,
-  },
-  {
-    name: '4',
-    uv: 28,
-    pv: 18,
-    amt: 20,
-  },
-  {
-    name: '5',
-    uv: 19,
-    pv: 50,
-    amt: 28,
-  },
-  {
-    name: '6',
-    uv: 29,
-    pv: 40,
-    amt: 20,
-  },
-  {
-    name: '7',
-    uv: 49,
-    pv: 30,
-    amt: 10,
-  },
-  {
-    name: '8',
-    uv: 40,
-    pv: 30,
-    amt: 21,
-  },
-  {
-    name: '9',
-    uv: 49,
-    pv: 30,
-    amt: 10,
-  },
-  {
-    name: '10',
-    uv: 39,
-    pv: 43,
-    amt: 20,
-  },
-];
-
-export default function App() {
+const BarChartDisplay = ({ sessions }) => {
   return (
-    <BarChart
-      width={500}
-      height={300}
-      data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-      <CartesianGrid strokeDasharray='2 2' vertical={false} />
-      <XAxis dataKey='name' axisLine={false} tickLine={false} />
-      <YAxis orientation='right' axisLine={false} allowDecimals={false} />
-      <Tooltip />
-      <Legend
-        height={80}
-        verticalAlign='top'
-        align='right'
-        iconType={'circle'}
-        style={{ margin: '1rem auto', width: '100px' }}
-      />
-      <Bar dataKey='pv' fill='#282D30' radius={[5, 5, 0, 0]} barSize={8} />
-      <Bar
-        dataKey='uv'
-        fill='#E60000'
-        radius={[5, 5, 0, 0]}
-        barSize={8}
-        name={'Calories brûlées (kCal)'}
-      />
-    </BarChart>
+    <div className={style.container}>
+      <p className={style.containerTitle}>Activité quotidienne</p>
+      {/* <ResponsiveContainer width='100%' height='100%'> */}
+      <BarChart
+        width={800}
+        height={280}
+        data={sessions}
+        margin={{
+          top: 30,
+          right: 10,
+          left: 30,
+          bottom: 0,
+        }}
+        // padding={{ left: -20 }}
+        barGap={6}
+      >
+        <CartesianGrid strokeDasharray='2 2' vertical={false} />
+        <XAxis
+          dataKey={'day'}
+          axisLine={false}
+          tickLine={false}
+          padding={{ left: -40, right: -40 }}
+          domain={['dataMin + 1', 'dataMax + 1']}
+          tickFormatter={customTick}
+        />
+        <YAxis
+          orientation='right'
+          axisLine={false}
+          allowDecimals={false}
+          dataKey={'kilogram'}
+          yAxisId={1}
+          tickLine={false}
+          //   horizontalPoints={[80, 140, 200]}
+          //   ticks={[1, 2, 3]}
+          tickMargin={20}
+          scale='linear'
+          tickCount={2}
+          domain={['dataMin - 10', 'dataMax + 10']}
+          // dx={20}
+        />
+        <YAxis hide dataKey={'calories'} yAxisId={2} />
+        <Tooltip
+          content={<CustomTooltip />}
+          labelStyle={{
+            display: 'none',
+          }}
+          wrapperStyle={{
+            color: '#FFF',
+            background: 'red',
+            border: 'none',
+            outline: 'none',
+            width: '50px',
+            height: '70px',
+            textAlign: 'center',
+            lineHeight: '1.5',
+          }}
+          margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
+        />
+        <Legend
+          height={60}
+          verticalAlign='top'
+          align='right'
+          iconType={'circle'}
+          style={{ margin: '1rem auto', width: '100px' }}
+          // dx={50}
+        />
+        <Bar
+          dataKey='kilogram'
+          fill='#282D30'
+          radius={[5, 5, 0, 0]}
+          barSize={7}
+          yAxisId={1}
+          name={'Poids (kg)'}
+        />
+        <Bar
+          yAxisId={2}
+          dataKey='calories'
+          fill='#E60000'
+          radius={[5, 5, 0, 0]}
+          barSize={7}
+          name={'Calories brûlées (kCal)'}
+        />
+      </BarChart>
+      {/* </ResponsiveContainer> */}
+    </div>
   );
-}
+};
+
+BarChartDisplay.propTypes = {
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ),
+};
+export default BarChartDisplay;
