@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 // *** design ***
 import styles from './index.module.css';
+import './loading.css';
 // *** components ***
 import LeftBar from '../../components/LeftBar';
 import BarChartDisplay from '../../components/BarChart';
@@ -17,7 +18,7 @@ const Dashboard = () => {
 
   // *** gesture data
   const [userData, setUserData] = useState(null);
-  const [isError, setIsError] = useState(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     async function getUserData() {
@@ -27,24 +28,43 @@ const Dashboard = () => {
         const userDatas = await userService.getData(params.id);
         // *** data mocked :
         // const userDatas = await userService.getMockedData();
+
         console.log('user : ', userDatas.user);
-        console.log('userAct : ', userDatas.userAct);
-        console.log('userPerf : ', userDatas.userPerf);
-        console.log('userSession : ', userDatas.userSession);
+        // console.log('userAct : ', userDatas.userAct);
+        // console.log('userPerf : ', userDatas.userPerf);
+        // console.log('userSession : ', userDatas.userSession);
 
         // Placement of data in the useState
         setUserData(userDatas);
+        localStorage.clear();
       } catch (error) {
-        console.log('error : ', error);
-        setIsError(error);
+        const messageErrorSave = error.toString();
+        // console.log('error done : ', e.includes('404'));
+        // localStorage.setItem('error', messageErrorSave);
+        setError(messageErrorSave);
+        // setIsLoading(false);
       }
     }
     getUserData();
-  }, [params.id, setUserData]);
+  }, [params.id, setUserData, setError]);
 
-  if (isError) {
-    // redirect 404
-  }
+  const gestureEmptyData = () => {
+    if (!userData && error && error.includes('404')) {
+      return <h1> erreur 404 </h1>;
+    } else if (!userData && error && error.includes('503')) {
+      return (
+        <h1 className={styles.messageError}>serveur indisponible, veuillez réessayer plus tard</h1>
+      );
+    } else {
+      return (
+        <div className='contentAnimation'>
+          <div className='lds-hourglass'>
+            <p>Les données sont en train de se charger</p>
+          </div>
+        </div>
+      );
+    }
+  };
 
   return (
     <div className={styles.bodyPage}>
@@ -67,19 +87,9 @@ const Dashboard = () => {
                   </div>
 
                   <div className={styles.containerDownGraphs}>
-                    <div>
-                      <LineChartDisplay userSession={userData.userSession} />
-                    </div>
-                    <div>
-                      <RadarChartDisplay userPerf={userData.userPerf} />
-                    </div>
-                    <div>
-                      <RadialChartDisplay
-                        score={
-                          userData.user.todayScore ? userData.user.todayScore : userData.user.score
-                        }
-                      />
-                    </div>
+                    <LineChartDisplay userSession={userData.userSession} />
+                    <RadarChartDisplay userPerf={userData.userPerf} />
+                    <RadialChartDisplay score={userData.user.score} />
                   </div>
                 </div>
               </div>
@@ -87,13 +97,17 @@ const Dashboard = () => {
           </div>
         </>
       ) : (
-        <div>...</div>
+        // <h1 className={styles.messageError}>serveur indisponible, veuillez réessayer plus tard</h1>
+        gestureEmptyData()
+
+        // <div className='contentAnimation'>
+        //   <div className='lds-hourglass'>
+        //     <p>Les données sont en train de se charger</p>
+        //   </div>
+        // </div>
       )}
     </div>
   );
 };
 
 export default Dashboard;
-// {userData.user.userInfos.firstName}
-// {userData[2].sessions[6].sessionLength}
-// {userData[0].userInfos.firstName}

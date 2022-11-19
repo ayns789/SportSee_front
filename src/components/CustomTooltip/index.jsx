@@ -3,6 +3,7 @@ import style from './index.module.css';
 import PropTypes from 'prop-types';
 
 function placeLabelIntoTooltip(payload) {
+  // reformate display data for linechart
   if (typeof payload[0].unit !== 'undefined') {
     return (
       <p className={style.tooltipPara}>
@@ -10,6 +11,7 @@ function placeLabelIntoTooltip(payload) {
       </p>
     );
   }
+  // reformate display data for barchart
   if (payload && payload.length) {
     return payload.map((prop, id) => {
       return prop.dataKey === 'calories' ? (

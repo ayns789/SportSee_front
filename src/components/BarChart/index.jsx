@@ -12,7 +12,6 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 import CustomTooltip from '../CustomTooltip';
-import { customTick } from '../../utils/formatedData';
 import style from './index.module.css';
 
 const BarChartDisplay = ({ sessions }) => {
@@ -40,7 +39,7 @@ const BarChartDisplay = ({ sessions }) => {
           tickLine={false}
           padding={{ left: -40, right: -40 }}
           domain={['dataMin + 1', 'dataMax + 1']}
-          tickFormatter={customTick}
+          tickFormatter={(v, i) => i + 1}
         />
         <YAxis
           orientation='right'
@@ -114,4 +113,5 @@ BarChartDisplay.propTypes = {
     })
   ),
 };
+
 export default BarChartDisplay;

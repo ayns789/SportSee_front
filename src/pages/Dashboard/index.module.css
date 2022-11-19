@@ -21,6 +21,21 @@
   .placementPage {
 
   }
+  .messageError{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0 2px black; 
+    font-size: 36px;
+    border-radius: 10px 10px 10px 10px;
+    background: linear-gradient(96.01deg, rgb(224, 48, 239) 17.48%, rgb(55, 140, 236) 108.64%);
+    color: #fff;
+  }
   .container {
 display: flex;
 flex-direction: row;
@@ -39,3 +54,8 @@ margin-bottom: 20px;
 flex-direction: row;
 justify-content: space-between;
   }
+
+
+
+
+  
