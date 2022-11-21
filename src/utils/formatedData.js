@@ -20,15 +20,20 @@ export function handleFormatTick(numDay) {
  * @returns The first letter of the word is being returned in uppercase and the rest of the word is
  * being returned in lowercase.
  */
-function englishToFrench(index) {
+function translateAndUpper(index) {
   const words = ['énergie', 'force', 'vitesse', 'intensité', 'cardio', 'endurance'];
   return words[index].charAt(0).toUpperCase() + words[index].substring(1).toLowerCase();
 }
 
+/**
+ * It takes an object with a data property, and returns an array of objects with a kind property.
+ * @param obj - the object that contains the data
+ * @returns An array of objects.
+ */
 export function reformDatas(obj) {
   // console.log(obj.data);
   return obj.data.map((nbrKind, key) => {
-    nbrKind.kind = englishToFrench(key);
+    nbrKind.kind = translateAndUpper(key);
     return nbrKind;
   });
 }

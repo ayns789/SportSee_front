@@ -1,5 +1,5 @@
 import Dashboard from '../pages/Dashboard';
-// import Error from '../../pages/error';
+import Error from '../pages/Error';
 
 const routes = [
   {
@@ -12,26 +12,11 @@ const routes = [
     element: <Dashboard />,
     title: 'profil',
   },
-  // {
-  //   path: '/user/:id/activity',
-  //   element: <Dashboard />,
-  //   title: 'profil/activites',
-  // },
-  // {
-  //   path: '/user/:id/average-sessions',
-  //   element: <Dashboard />,
-  //   title: 'profil/sessions-moyennes',
-  // },
-  // {
-  //   path: '/user/:id/performance',
-  //   element: <Dashboard />,
-  //   title: 'profil/performances',
-  // },
-  // {
-  //   path: '*',
-  //   element: <Error />,
-  //   title: 'error404',
-  // },
+  {
+    path: '*',
+    element: <Error />,
+    title: 'error404',
+  },
 ];
 
 export default routes;

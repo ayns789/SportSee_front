@@ -14,7 +14,7 @@ import styles from './index.module.css';
  * @returns {React.ReactElement} A graph line chart
  */
 const LineChartDisplay = ({ userSession }) => {
-  return (
+  return userSession ? (
     <div className={styles.linechart}>
       <p className={styles.title}>Durée moyenne des sessions</p>
       <ResponsiveContainer margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
@@ -56,6 +56,8 @@ const LineChartDisplay = ({ userSession }) => {
         </LineChart>
       </ResponsiveContainer>
     </div>
+  ) : (
+    <progress></progress>
   );
 };
 

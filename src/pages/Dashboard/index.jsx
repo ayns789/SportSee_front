@@ -9,8 +9,10 @@ import BarChartDisplay from '../../components/BarChart';
 import LineChartDisplay from '../../components/LineChart';
 import RadarChartDisplay from '../../components/RadarChart';
 import RadialChartDisplay from '../../components/RadialChart';
+import Card from '../../components/Cards';
 // *** datas ***
 import { UserService } from '../../services/user.service';
+import Redirection from '../../components/Redirection';
 
 const Dashboard = () => {
   // *** id
@@ -30,32 +32,41 @@ const Dashboard = () => {
         // const userDatas = await userService.getMockedData();
 
         console.log('user : ', userDatas.user);
-        // console.log('userAct : ', userDatas.userAct);
-        // console.log('userPerf : ', userDatas.userPerf);
-        // console.log('userSession : ', userDatas.userSession);
+        console.log('userAct : ', userDatas.userAct);
+        console.log('userPerf : ', userDatas.userPerf);
+        console.log('userSession : ', userDatas.userSession);
 
         // Placement of data in the useState
         setUserData(userDatas);
         localStorage.clear();
       } catch (error) {
+        // console.log('error type : ', error);
         const messageErrorSave = error.toString();
-        // console.log('error done : ', e.includes('404'));
-        // localStorage.setItem('error', messageErrorSave);
+        // const messageErrorSave = 'erreur code 503';
+        // console.log('error done : ', messageErrorSave.includes('404'));
         setError(messageErrorSave);
-        // setIsLoading(false);
       }
     }
     getUserData();
   }, [params.id, setUserData, setError]);
 
   const gestureEmptyData = () => {
-    if (!userData && error && error.includes('404')) {
-      return <h1> erreur 404 </h1>;
-    } else if (!userData && error && error.includes('503')) {
+    //  context 404
+    if (!userData && error.includes('404')) {
+      return <Redirection />;
+    }
+    //  context 503
+    else if (!userData && error.includes('Network Error')) {
       return (
-        <h1 className={styles.messageError}>serveur indisponible, veuillez réessayer plus tard</h1>
+        <div className={styles.contentMessageError503}>
+          <h1 className={styles.messageError503}>
+            erreur 503 : serveur indisponible, veuillez réessayer plus tard
+          </h1>
+        </div>
       );
-    } else {
+    }
+    //  global context
+    else {
       return (
         <div className='contentAnimation'>
           <div className='lds-hourglass'>
@@ -91,6 +102,12 @@ const Dashboard = () => {
                     <RadarChartDisplay userPerf={userData.userPerf} />
                     <RadialChartDisplay score={userData.user.score} />
                   </div>
+                </div>
+                <div className={styles.containerCards}>
+                  <Card type='calorie' countValue={userData.user.keyData.calorieCount} />
+                  <Card type='protein' countValue={userData.user.keyData.proteinCount} />
+                  <Card type='glucide' countValue={userData.user.keyData.carbohydrateCount} />
+                  <Card type='lipide' countValue={userData.user.keyData.lipidCount} />
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { reformDatas } from '../../utils/formatedData';
+import styles from './index.module.css';
 import {
   // ResponsiveContainer,
   RadarChart,
@@ -10,11 +11,13 @@ import {
 } from 'recharts';
 
 const RadarChartDisplay = ({ userPerf }) => {
-  const datas = reformDatas(userPerf);
+  let datas = null;
+  if (userPerf) {
+    datas = reformDatas(userPerf);
+  }
 
-  return (
-    <div className='radarchart'>
-      {/* <ResponsiveContainer> */}
+  return userPerf ? (
+    <div className={styles.radarchart}>
       <RadarChart
         outerRadius={75}
         data={datas}
@@ -35,8 +38,9 @@ const RadarChartDisplay = ({ userPerf }) => {
         />
         <Radar dataKey='value' stroke='red' fill='red' fillOpacity={0.6} />
       </RadarChart>
-      {/* </ResponsiveContainer> */}
     </div>
+  ) : (
+    <progress></progress>
   );
 };
 

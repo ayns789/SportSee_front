@@ -15,12 +15,11 @@ import CustomTooltip from '../CustomTooltip';
 import style from './index.module.css';
 
 const BarChartDisplay = ({ sessions }) => {
-  return (
+  return sessions ? (
     <div className={style.container}>
       <p className={style.containerTitle}>Activité quotidienne</p>
-      {/* <ResponsiveContainer width='100%' height='100%'> */}
       <BarChart
-        width={800}
+        width={890}
         height={280}
         data={sessions}
         margin={{
@@ -99,8 +98,9 @@ const BarChartDisplay = ({ sessions }) => {
           name={'Calories brûlées (kCal)'}
         />
       </BarChart>
-      {/* </ResponsiveContainer> */}
     </div>
+  ) : (
+    <progress></progress>
   );
 };
 
