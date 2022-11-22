@@ -38,7 +38,6 @@ const Dashboard = () => {
 
         // Placement of data in the useState
         setUserData(userDatas);
-        localStorage.clear();
       } catch (error) {
         // console.log('error type : ', error);
         const messageErrorSave = error.toString();
@@ -56,7 +55,7 @@ const Dashboard = () => {
       return <Redirection />;
     }
     //  context 503
-    else if (!userData && error.includes('Network Error')) {
+    else if ((!userData && error.includes('503')) || error.includes('Network Error')) {
       return (
         <div className={styles.contentMessageError503}>
           <h1 className={styles.messageError503}>
@@ -114,14 +113,7 @@ const Dashboard = () => {
           </div>
         </>
       ) : (
-        // <h1 className={styles.messageError}>serveur indisponible, veuillez réessayer plus tard</h1>
         gestureEmptyData()
-
-        // <div className='contentAnimation'>
-        //   <div className='lds-hourglass'>
-        //     <p>Les données sont en train de se charger</p>
-        //   </div>
-        // </div>
       )}
     </div>
   );

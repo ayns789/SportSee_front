@@ -1,6 +1,6 @@
 .linechart {
     width: 260px;
-    height: 230px;
+    height: 260px;
     background-color: red;
     position: relative;
     border-radius: 10px;
@@ -28,11 +28,7 @@
     padding: 2rem 0 0 0;
 }
 
-/* .recharts-text {
-    color: #fff;
-    mix-blend-mode: normal;
-    opacity: 0.5;
-} */
+
 
 @media screen and (max-width: 1330px) {
     .linechart {

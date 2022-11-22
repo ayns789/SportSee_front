@@ -9,4 +9,57 @@ body {
   min-height: 842px;
 }
 
+/* barchart */
+.recharts-tooltip-wrapper:active:hover{
+  outline: none !important;
+  border: none !important;
+} 
+.recharts-tooltip-wrapper-left, .recharts-tooltip-wrapper-top {
+    outline: none !important;
+    border: none !important;
+  }
+  .recharts-default-legend {
+    /* margin-top: 0rem !important; */
+    padding-right: 1.5rem !important;
+  }
+li .recharts-legend-item span {
+  color: #74798c !important;
+  font-weight: bold;
+  font-size: 14px;
+}
+.recharts-legend-item:nth-child(1) {
+  margin-right: 2rem !important;
+}
+li .recharts-legend-item:nth-last-child() {
+  margin-left: 2rem !important;
+  /* padding-left: 2rem !important; */
+}
 
+li .recharts-legend-item svg .recharts-surface {
+  height: 8px;
+  width: 8px;
+}
+.recharts-surface .recharts-rectangle:nth-child(7) {
+  
+  padding-left: -5em !important;
+  margin-left: -5em !important;
+}
+/* .Barchart_container__KBTY0 .recharts-responsive-container .recharts-wrapper .recharts-tooltip-wrapper {
+  margin-top: 1em;
+} */
+
+
+/* linechart */
+.LineChart_linechart__mtLqQ .recharts-text {
+  color: #fff;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.recharts-tooltip-wrapper-bottom  ul p {
+  margin-top: 0.5em;
+}
+
+.recharts-layer.recharts-line, .recharts-curve.recharts-line-curve {
+  width: 258px !important;
+}

@@ -1,9 +1,12 @@
 .container {
 position: relative;
-width: 100%;
-height: 280px;
+/* width: 100%; */
+max-width: 835px;
+height: 320px;
 background: #f8f8f8;
 border-radius: 10px;
+width:820;
+        height:300;
 }
 .container:hover {
 box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
@@ -13,7 +16,7 @@ border-radius: 10px;
 position: absolute;
 font-size: 17px;
 left: 3.83%;
-top: 0.9rem;
+top: 0.8rem;
 font-weight: bold;
 color: #20253a;
 line-height: 24px;

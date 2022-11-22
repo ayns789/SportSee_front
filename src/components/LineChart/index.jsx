@@ -17,7 +17,7 @@ const LineChartDisplay = ({ userSession }) => {
   return userSession ? (
     <div className={styles.linechart}>
       <p className={styles.title}>Durée moyenne des sessions</p>
-      <ResponsiveContainer margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+      <ResponsiveContainer width='100%' height='100%'>
         <LineChart
           data={userSession.sessions}
           style={{ background: 'red', borderRadius: '10px' }}

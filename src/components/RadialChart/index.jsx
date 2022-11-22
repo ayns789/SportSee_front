@@ -28,11 +28,11 @@ const RadialChartDisplay = (score) => {
         <span className={styles.text}>de votre objectif</span>
       </div>
 
-      <ResponsiveContainer>
+      <ResponsiveContainer width='100%' height='100%'>
         <RadialBarChart
           cx='50%'
           cy='50%'
-          innerRadius='70%'
+          innerRadius='60%'
           outerRadius='90%'
           barSize={8}
           startAngle={90}
