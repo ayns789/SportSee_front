@@ -35,7 +35,7 @@ const Card = ({ type, countValue }) => {
     // code block
   }
 
-  return (
+  return typeof type === 'string' && !isNaN(countValue) ? (
     <div className={styles.card}>
       <div className={styles.cardBoxIcn}>
         <img src={img} alt='icon' className={styles.cardIcn} />
@@ -48,6 +48,8 @@ const Card = ({ type, countValue }) => {
         <span className={styles.cardDataType}>{name}</span>
       </div>
     </div>
+  ) : (
+    <progress></progress>
   );
 };
 

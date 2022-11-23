@@ -9,11 +9,11 @@ import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } fro
 
 const RadarChartDisplay = ({ userPerf }) => {
   let datas = null;
-  if (userPerf) {
+  if (userPerf && Array.isArray(userPerf.data)) {
     datas = reformDatas(userPerf);
   }
 
-  return userPerf ? (
+  return datas ? (
     <div className={styles.radarchart}>
       <ResponsiveContainer width='100%' height='100%'>
         <RadarChart
@@ -43,8 +43,8 @@ const RadarChartDisplay = ({ userPerf }) => {
 
 RadarChartDisplay.propTypes = {
   userPerf: PropTypes.shape({
-    data: PropTypes.arrayOf(PropTypes.object),
-    kind: PropTypes.object,
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    kind: PropTypes.object.isRequired,
     userId: PropTypes.number.isRequired,
   }),
 };
