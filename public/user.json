@@ -9,12 +9,12 @@
           "lastName": "Dovineau",
           "age": 31
       },
-      "todayScore": 0.12,
+      "todayScore": 0.43,
       "keyData": {
-          "calorieCount": 1930,
-          "proteinCount": 155,
-          "carbohydrateCount": 290,
-          "lipidCount": 50
+          "calorieCount": 1560,
+          "proteinCount": 179,
+          "carbohydrateCount": 200,
+          "lipidCount": 60
       }
   }
 

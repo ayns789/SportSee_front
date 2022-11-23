@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+// *** design :
 import styles from './index.module.css';
 import icnAssis from '../../assets/icone_assis.svg';
 import icnNager from '../../assets/icone_nager.svg';

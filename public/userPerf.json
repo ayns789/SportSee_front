@@ -15,23 +15,23 @@
         },
         "data": [
             {
-                "value": 80,
+                "value": 70,
                 "kind": 1
             },
             {
-                "value": 120,
+                "value": 50,
                 "kind": 2
             },
             {
-                "value": 140,
+                "value": 120,
                 "kind": 3
             },
             {
-                "value": 50,
+                "value": 80,
                 "kind": 4
             },
             {
-                "value": 200,
+                "value": 180,
                 "kind": 5
             },
             {

@@ -1,4 +1,6 @@
+// *** datas :
 import PropTypes from 'prop-types';
+// *** design :
 import icnCalories from '../../assets/icone_flamme.svg';
 import icnProteines from '../../assets/icone_proteines.svg';
 import icnGlucides from '../../assets/icone_burger.svg';
@@ -15,7 +17,7 @@ const Card = ({ type, countValue }) => {
       img = icnCalories;
       unit = 'kCal';
       name = 'Calories';
-      countValue = countValue / 1000;
+      countValue = (countValue / 1000).toPrecision(4);
       break;
     case 'protein':
       img = icnProteines;

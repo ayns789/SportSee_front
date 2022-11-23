@@ -1,4 +1,5 @@
-.card {
+.card 
+{
     width: 258px;
     height: 124px;
     background: #f8f8f8;
@@ -9,75 +10,108 @@
     align-items: center;
     gap: 2rem;
     -webkit-animation: scale-up-hor-right 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	animation: scale-up-hor-right 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-hor-right 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
-    .card:hover {
-      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-    }
-    .cardIcn {
-        width: 60px;
-        height: 60px;
-        /* margin-top: 0; */
-        margin-left: -1.5em;
-      }
+.card:hover     
+{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.cardBoxIcn 
+{
+    position : absolute;
+    left: 10%;
+    top: 27%;
+}
+.cardIcn 
+{
+    width: 60px;
+    height: 60px;
+}
 
-    .cardBoxData {
+.cardBoxData 
+{
+    position: absolute;
+    margin-bottom: 1em;
+    left: 45%;
+}
+.cardData 
+{
+    margin-bottom: 0.5em;
+    font-size: 20px;
+}
+
+.cardDataType 
+{
+    color: #74798c;
+    font-size: 14px;
+    line-height: 0;
+
+}
+
+@-webkit-keyframes scale-up-hor-right {
+    0% 
+    {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+    100% 
+    {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+}
+@keyframes scale-up-hor-right {
+    0% 
+    {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+    100% 
+    {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+}
+@media screen and (max-width: 1330px) {
+    .card 
+    {
+        height: 110px;
+        width: 215px;
+    }
+    .cardBoxIcn 
+    {
+        top: 22%;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .card 
+    {
+        height: 85px;
+        width: 190px;
+        gap: 1rem;
+    }
+    .cardBoxIcn 
+    {
+        top: 15%;
+    }
+    .cardBoxData 
+    {
         margin-bottom: 1em;
-    }
-    .cardData {
-      margin-bottom: 0.5em;
-      font-size: 20px;
+        left: 50%;
     }
 
-      .cardDataType {
-        color: #74798c;
-        /* margin-top: 0; */
-        font-size: 14px;
-        line-height: 0;
-      }
-
-      @-webkit-keyframes scale-up-hor-right {
-        0% {
-          -webkit-transform: scaleX(0);
-                  transform: scaleX(0);
-          -webkit-transform-origin: 100% 100%;
-                  transform-origin: 100% 100%;
-        }
-        100% {
-          -webkit-transform: scaleX(1);
-                  transform: scaleX(1);
-          -webkit-transform-origin: 100% 100%;
-                  transform-origin: 100% 100%;
-        }
-      }
-      @keyframes scale-up-hor-right {
-        0% {
-          -webkit-transform: scaleX(0);
-                  transform: scaleX(0);
-          -webkit-transform-origin: 100% 100%;
-                  transform-origin: 100% 100%;
-        }
-        100% {
-          -webkit-transform: scaleX(1);
-                  transform: scaleX(1);
-          -webkit-transform-origin: 100% 100%;
-                  transform-origin: 100% 100%;
-        }
-      }
-  @media screen and (max-width: 1330px) {
-    .card {
-      height: 110px;
-      width: 215px;
+}
+@media all and (min-width: 1101px) and (max-width: 1421px){
+    .card:nth-child(4) 
+    {
+        margin-top: 2em;  
     }
-  }
-  @media screen and (max-width: 1100px) {
-    .card {
-      height: 85px;
-      width: 190px;
-      gap: 1rem;
-    }
-      .cardBoxIcn {
-        font-size: 15px;
-      }
-    
-  }
+}

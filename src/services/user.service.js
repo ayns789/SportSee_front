@@ -1,6 +1,8 @@
 import axios from 'axios';
 import transformDataUser from '../utils/transformData.js';
 
+/* It's a class that has two methods, one that gets data from an API and one that gets data from a
+mocked API. */
 export class UserService {
   getData = async (userId) => {
     const baseUrl = 'http://localhost:3000/user/';

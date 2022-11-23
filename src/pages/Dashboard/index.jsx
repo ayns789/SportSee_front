@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 // *** design ***
 import styles from './index.module.css';
+import imgManutention from '../../assets/img_ouvrier.jpg';
 import './loading.css';
 // *** components ***
 import LeftBar from '../../components/LeftBar';
@@ -11,6 +11,7 @@ import RadarChartDisplay from '../../components/RadarChart';
 import RadialChartDisplay from '../../components/RadialChart';
 import Card from '../../components/Cards';
 // *** datas ***
+import { useParams } from 'react-router-dom';
 import { UserService } from '../../services/user.service';
 import Redirection from '../../components/Redirection';
 
@@ -39,10 +40,7 @@ const Dashboard = () => {
         // Placement of data in the useState
         setUserData(userDatas);
       } catch (error) {
-        // console.log('error type : ', error);
         const messageErrorSave = error.toString();
-        // const messageErrorSave = 'erreur code 503';
-        // console.log('error done : ', messageErrorSave.includes('404'));
         setError(messageErrorSave);
       }
     }
@@ -55,12 +53,17 @@ const Dashboard = () => {
       return <Redirection />;
     }
     //  context 503
-    else if ((!userData && error.includes('503')) || error.includes('Network Error')) {
+    else if (!userData && (error.includes('503') || error.includes('Network Error'))) {
       return (
-        <div className={styles.contentMessageError503}>
-          <h1 className={styles.messageError503}>
-            erreur 503 : serveur indisponible, veuillez réessayer plus tard
-          </h1>
+        <div className={styles.contentPageError503}>
+          <div className={styles.contentMessageError503}>
+            <h1 className={styles.messageError503}>
+              erreur 503 : serveur indisponible, veuillez réessayer plus tard
+            </h1>
+          </div>
+          <div className={styles.containerImg503}>
+            <img src={imgManutention} alt='manutention' className={styles.img503} />
+          </div>
         </div>
       );
     }

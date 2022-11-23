@@ -1,5 +1,7 @@
 import React from 'react';
+// *** design :
 import style from './index.module.css';
+// *** datas :
 import PropTypes from 'prop-types';
 
 function placeLabelIntoTooltip(payload) {

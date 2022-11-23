@@ -27,16 +27,3 @@ export default function transformDataUser(a, b, c, d) {
 
   return { user, userAct, userSession, userPerf };
 }
-
-// const Person = {
-//     name: "Hadie Danker",
-//     sex: "male",
-//     adress: {
-//         country: "ID",
-//         state: "France",
-//         city: "OKU",
-//         pincode: "123456"
-//     }
-// }
-
-// const {adress : { state, pincode }, name} = Person;

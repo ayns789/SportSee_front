@@ -1,9 +1,11 @@
 import React from 'react';
+// *** datas :
 import { handleFormatTick } from '../../utils/formatedData';
-
 import PropTypes from 'prop-types';
-import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip, YAxis } from 'recharts';
 import CustomTooltip from '../CustomTooltip';
+// *** recharts :
+import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip, YAxis } from 'recharts';
+// *** design :
 import styles from './index.module.css';
 
 /**

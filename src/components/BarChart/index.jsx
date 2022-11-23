@@ -1,5 +1,5 @@
-// import './styles.css';
 import React from 'react';
+// *** recharts :
 import {
   BarChart,
   Bar,
@@ -10,8 +10,10 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+// *** datas :
 import PropTypes from 'prop-types';
 import CustomTooltip from '../CustomTooltip';
+// *** design :
 import style from './index.module.css';
 
 const BarChartDisplay = ({ sessions }) => {
@@ -75,12 +77,12 @@ const BarChartDisplay = ({ sessions }) => {
             margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
           />
           <Legend
-            height={60}
+            height={80}
             verticalAlign='top'
             align='right'
             iconType={'circle'}
             style={{ margin: '1rem auto', width: '100px' }}
-            // dx={50}
+            // dx={20}
           />
           <Bar
             dataKey='kilogram'

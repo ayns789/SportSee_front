@@ -1,7 +1,10 @@
 import React from 'react';
+// *** data :
 import PropTypes from 'prop-types';
 import { reformDatas } from '../../utils/formatedData';
+// *** design :
 import styles from './index.module.css';
+// *** recharts :
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts';
 
 const RadarChartDisplay = ({ userPerf }) => {

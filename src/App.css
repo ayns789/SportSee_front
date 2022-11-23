@@ -51,15 +51,16 @@ li .recharts-legend-item svg .recharts-surface {
 
 /* linechart */
 .LineChart_linechart__mtLqQ .recharts-text {
-  color: #fff;
-  mix-blend-mode: normal;
-  opacity: 0.5;
+    color: #fff;
+    mix-blend-mode: normal;
+    opacity: 0.5;
 }
 
 .recharts-tooltip-wrapper-bottom  ul p {
-  margin-top: 0.5em;
+    margin-top: 0.5em;
 }
 
 .recharts-layer.recharts-line, .recharts-curve.recharts-line-curve {
-  width: 258px !important;
+    width: 258px !important;
 }
+

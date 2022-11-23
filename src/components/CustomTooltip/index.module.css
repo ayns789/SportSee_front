@@ -1,4 +1,5 @@
-.into {
+.into 
+{
     font-size: 7px;
     display: flex;
     flex-direction: column;
@@ -8,32 +9,37 @@
     height: 100%;
     margin: 0;
 }
-.into .tooltipList {
-      display: block;
-      padding: 0.5rem;
-      font-weight: bold;
-    }
-.into .tooltipPara {
-      text-align: center;
-      font-weight: bold;
-      font-size: 9px;
-    }
-  
-  
-  li .recharts-legend-item span {
+.into .tooltipList 
+{
+    display: block;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+.into .tooltipPara 
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 9px;
+}
+
+
+li .recharts-legend-item span 
+{
     color: #74798c !important;
     font-weight: bold;
     font-size: 14px;
-  }
- .recharts-legend-item:nth-child(1) {
+}
+.recharts-legend-item:nth-child(1)
+{
     margin-right: 2rem !important;
-  }
-  li .recharts-legend-item:nth-last-child() {
+}
+li .recharts-legend-item:nth-last-child() 
+{
     margin-left: 2rem !important;
-    /* padding-left: 2rem !important; */
-  }
-  
-  li .recharts-legend-item svg .recharts-surface {
+}
+
+li .recharts-legend-item svg .recharts-surface 
+{
     height: 8px;
     width: 8px;
-  }
+}

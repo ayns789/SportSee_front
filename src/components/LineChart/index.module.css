@@ -1,4 +1,5 @@
-.linechart {
+.linechart 
+{
     width: 260px;
     height: 260px;
     background-color: red;
@@ -8,11 +9,13 @@
     min-width: 176px;
 }
 
-.linechart:hover {
+.linechart:hover 
+{
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-.title {
+.title 
+{
     position: absolute;
     z-index: 10;
     font-style: normal;
@@ -26,18 +29,4 @@
     text-align: left;
     margin: 0 0 0 2rem;
     padding: 2rem 0 0 0;
-}
-
-
-
-@media screen and (max-width: 1330px) {
-    .linechart {
-        height: 230px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .linechart {
-        height: 210px;
-    }
 }

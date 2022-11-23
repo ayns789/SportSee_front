@@ -1,18 +1,21 @@
-.contentMessageError404 {
+.contentMessageError404 
+{
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: center;
     margin: 2em auto auto auto;
-  }
-  .messageError404 {
+}
+.messageError404 
+{
     color: #FF0101;
     font-size: 120px;
     margin-bottom:0.5em;
-  }
-  .paragError404 {
+}
+.paragError404 
+{
     margin-top: 0;
     color: #FF0101;
     font-size: 30px;
-  }
+}

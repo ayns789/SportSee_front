@@ -1,6 +1,9 @@
 import React from 'react';
+// *** data :
 import PropTypes from 'prop-types';
+// *** recharts :
 import { ResponsiveContainer, RadialBarChart, RadialBar } from 'recharts';
+// *** design :
 import styles from './index.module.css';
 
 /**
