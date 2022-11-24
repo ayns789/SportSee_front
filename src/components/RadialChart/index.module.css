@@ -49,5 +49,11 @@
     width: 50%;
     color: #74798c;
 }
+.containerProgress 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 

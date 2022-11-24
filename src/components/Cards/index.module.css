@@ -47,6 +47,12 @@
     line-height: 0;
 
 }
+.containerProgress 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @-webkit-keyframes scale-up-hor-right {
     0% 

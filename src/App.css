@@ -39,7 +39,7 @@ li .recharts-legend-item svg .recharts-surface {
   height: 8px;
   width: 8px;
 }
-.recharts-surface .recharts-rectangle:nth-child(7) {
+.recharts-surface .recharts-rectangle:nth-child(6) {
   
   padding-left: -5em !important;
   margin-left: -5em !important;

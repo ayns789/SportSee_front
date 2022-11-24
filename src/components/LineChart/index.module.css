@@ -30,3 +30,9 @@
     margin: 0 0 0 2rem;
     padding: 2rem 0 0 0;
 }
+.containerProgress 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

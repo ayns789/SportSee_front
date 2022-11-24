@@ -49,7 +49,9 @@ const Card = ({ type, countValue }) => {
       </div>
     </div>
   ) : (
-    <progress></progress>
+    <div className={styles.containerProgress}>
+      <progress></progress>
+    </div>
   );
 };
 

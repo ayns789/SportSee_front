@@ -37,7 +37,9 @@ const RadarChartDisplay = ({ userPerf }) => {
       </ResponsiveContainer>
     </div>
   ) : (
-    <progress></progress>
+    <div className={styles.containerProgress}>
+      <progress></progress>
+    </div>
   );
 };
 

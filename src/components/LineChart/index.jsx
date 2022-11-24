@@ -7,6 +7,7 @@ import CustomTooltip from '../CustomTooltip';
 import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip, YAxis } from 'recharts';
 // *** design :
 import styles from './index.module.css';
+import CustomCursor from '../CustomRectangle';
 
 /**
  * It's a function that returns a div with a title, a responsive container, a line chart, a line, a y
@@ -54,6 +55,7 @@ const LineChartDisplay = ({ userSession }) => {
             }}
             labelStyle={{ display: 'none', border: 'none' }}
             content={<CustomTooltip />}
+            cursor={<CustomCursor />}
           />
         </LineChart>
       </ResponsiveContainer>

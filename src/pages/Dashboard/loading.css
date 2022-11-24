@@ -37,6 +37,7 @@
     border-color: #E60000 transparent white transparent;
     animation: lds-hourglass 1.2s infinite;
 }
+
 @keyframes lds-hourglass {
     0% 
     {

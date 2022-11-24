@@ -158,6 +158,18 @@
     {
         margin-left: 2em;
     }
+    /* .containerDownGraphs 
+    {
+        padding: 1em;
+    } */
+    .linechart
+    {
+        margin-right: 1em;
+    }
+    .radarchart 
+    {
+        margin-right: 1em;
+    }
 }
 @media screen and ( max-width: 1160px) {
     .contentPage 

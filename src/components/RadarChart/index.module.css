@@ -8,3 +8,9 @@
     width: 260px;
     height: 260px;
 }
+.containerProgress 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
