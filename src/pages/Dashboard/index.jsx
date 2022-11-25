@@ -45,15 +45,15 @@ const Dashboard = () => {
       }
     }
     getUserData();
-  }, [params.id, setUserData, setError]);
+  }, [params.id]);
 
   const gestureEmptyData = () => {
     //  context 404
-    if (!userData && error.includes('404')) {
+    if (error.includes('404')) {
       return <Redirection />;
     }
     //  context 503
-    else if (!userData && (error.includes('503') || error.includes('Network Error'))) {
+    else if (error.includes('503') || error.includes('Network Error')) {
       return (
         <div className={styles.contentPageError503}>
           <div className={styles.contentMessageError503}>
